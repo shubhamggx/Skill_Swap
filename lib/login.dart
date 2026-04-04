@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:skill_swap/sign_up.dart';
+import 'package:skill_swap/Home.dart';
 class Login extends StatelessWidget {
   const Login({super.key});
 
@@ -8,29 +9,29 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.white, const Color.fromARGB(255, 36, 31, 95)],
-            ),
-          ),
+          // flexible space is the property of appbar which is used to place custom widget like icon decoration etc//
+          decoration: BoxDecoration(color: Colors.black),
         ),
         elevation: 20, //shadow
         title: Text(
-          "Login",
+          "LOGIN",
           style: TextStyle(
             fontSize: 35,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 36, 31, 95),
+            color: Colors.white,
           ),
-          
         ),
       ),
       body: Container(
         // we need to put in it container to decorate the body background color
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, const Color.fromARGB(255, 36, 31, 95)],
+          image: DecorationImage(
+            image: AssetImage("assets/fuente_original.jpeg"),
+            fit: BoxFit.cover, // fit all the screen
           ),
+          // gradient: LinearGradient(
+          //   colors: [Colors.white, const Color.fromARGB(255, 36, 31, 95)],
+          // ),
         ),
         child: Center(
           child: Column(
@@ -39,11 +40,26 @@ class Login extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     filled: true, //yes  we are going to fill color in text box
-                    fillColor: Colors.white.withOpacity(0.8),
-                    label: Text("Email"),
-                    hint: Text("Enter Your email"),
+                    fillColor: Colors.transparent,
+                    label: Text(
+                      "Email",
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    hint: Text(
+                      "Enter Your email",
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15), //bordar radius
                     ),
@@ -54,11 +70,26 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
 
                 child: TextField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.white.withOpacity(0.8),
-                    label: Text("Password"),
-                    hint: Text("Enter your Password"),
+                    fillColor: Colors.transparent,
+                    label: Text(
+                      "Password",
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    hint: Text(
+                      "Enter your Password",
+                      style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -73,15 +104,25 @@ class Login extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
 
                     child: ElevatedButton(
-                    
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         elevation: 5,
                       ),
                       onPressed: () {
-                        print("Email button is clicked");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                        print("Login  button  clicked");
                       },
-                      child: Text("Login"),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
@@ -92,9 +133,22 @@ class Login extends StatelessWidget {
                         elevation: 5,
                       ),
                       onPressed: () {
-                        print("Signup button  is clicked");
+                        Navigator.push(
+                          context, //current widget ki location / identity
+                          MaterialPageRoute(
+                            builder: (context) => SignUp(),
+                          ), // sign up  me  push krdo
+                        );
+                        print("Signup button clicked");
                       },
-                      child: Text("Sign Up"),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   ),
                 ],
